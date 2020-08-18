@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use \DateTime;
 
 class LearningController extends AbstractController
 {
@@ -30,8 +31,10 @@ class LearningController extends AbstractController
     {
         if ($session->get('name')) {
             $name = $session->get('name');
+            $date = new DateTime();
             $response = $this->render('aboutMe.html.twig', [
-                'name' => $name
+                'name' => $name,
+                'date' => $date
             ]);
         } else {
             $response = $this->forward('App\Controller\LearningController::showMyName');
