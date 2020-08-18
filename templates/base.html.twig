@@ -22,11 +22,13 @@
 
         <main class="container-fluid">
             {% block body %}{% endblock %}
-            {% block quotes %} {{ quotes }}{% endblock %}
+            <section class="m-3">
+                {{ 'quote'|nl2br }}
+            </section>
         </main>
     </div>
     <footer class="text-center">
-        {% block footer %}&copy; BeCode{% endblock %}
+        &copy; BeCode
     </footer>
 
     {% block javascripts %}
