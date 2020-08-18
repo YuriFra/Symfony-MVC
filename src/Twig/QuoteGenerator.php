@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -26,7 +26,12 @@ class QuoteGenerator extends AbstractExtension
     public function getFunctions() : array
     {
         return [
-            new TwigFunction('quote', [$this, $this->quotes[array_rand($this->quotes)]]),
+            new TwigFunction('randomQuote', [$this, 'randomQuote']),
         ];
+    }
+
+    public function randomQuote()
+    {
+        return $this->quotes[array_rand($this->quotes, 1)];
     }
 }

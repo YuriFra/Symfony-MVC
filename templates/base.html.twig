@@ -23,7 +23,7 @@
         <main class="container-fluid">
             {% block body %}{% endblock %}
             <section class="m-3">
-                {{ 'quote'|nl2br }}
+                {% block quote %}{{ randomQuote()|nl2br }}{% endblock %}
             </section>
         </main>
     </div>
