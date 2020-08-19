@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block menu %}
+    {{ parent() }}
     <p>Europe: {{ date|format_date(pattern="d/M/Y") }}</p>
     <p>America: {{ date|format_date(pattern="M/d/Y") }}</p>
     <p>China & Japan: {{ date|format_date(pattern="Y/M/d") }}</p>

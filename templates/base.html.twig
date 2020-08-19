@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -13,10 +13,12 @@
         <header class="row flex-column d-flex pt-5">
             <div class="col-1">
                 <nav class="navbar nav-pills flex-column sidenav">
+                    {% block menu %}
                     <a class="nav-item nav-link active" href="{{ path('showMyName') }}">Home</a>
                     <a class="nav-item nav-link" href="{{ path('aboutMe') }}">About</a>
-                    {% block menu %}{% endblock %}
+                    {% endblock %}
                 </nav>
+
             </div>
         </header>
 
@@ -28,7 +30,7 @@
         </main>
     </div>
     <footer class="text-center">
-        &copy; BeCode
+        {% block footer %}&copy; BeCode{% endblock %}
     </footer>
 
     {% block javascripts %}
